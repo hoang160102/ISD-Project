@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #EEB422;
+    font-family: 'R', sans-serif;
+}
+
+.container {
+    width: 400px;
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.container h1 {
+    margin-top: 20px;
+}
+
+.container form {
+    padding: 0 40px;
+}
+
+.form-control {
+    margin: 40px 0;
+    border-bottom: 2px solid #adadad;
+}
+
+.form-control input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 17px;
+    height: 40px;
+}
+
+.submit-form {
+    margin: 20px 0 30px;
+    font-size: 18px;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    background: #F73030;
+    height: 50px;
+    transition: 0.5s;
+    cursor: pointer;
+    color: #fff;
+}
+
+.submit-form:hover {
+    color: #ccc;
+}
+
+
