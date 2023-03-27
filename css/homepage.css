@@ -187,7 +187,7 @@ body {
 .about-desc {
     color: #4b4b4b;
     line-height: 1.4;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .about-left-content a {
@@ -302,7 +302,7 @@ body {
     justify-content: space-between;
     color: #2d2c2c;
     border-bottom: solid 1px #c69311;
-    padding: 40px 0;
+    padding: 40px 16px;
 }
 
 .contact-box {
@@ -356,12 +356,13 @@ body {
         position: absolute;
         top: 100px;
         width: 100%;
-        background-color: rgba(225, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 0 16px;
     }
 
     .list-menu {
         padding: 10px 0;
-        border-bottom: 1px solid #e46762;
+        border-bottom: 1px solid #ccc;
         cursor: pointer;
     }
 
@@ -385,6 +386,45 @@ body {
         right: 10px;
         top: 30px;
         cursor: pointer;
+    }
+
+
+}
+
+@media screen and (max-width: 740px) {
+    .about-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-left-content, .about-right-content {
+    width: 100%;
+    }
+
+    .about-left-content {
+        margin-bottom: 20px;
+    }
+    
+
+    .service-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-content, .right-content {
+        width: 100%;
+    }
+
+    .left-content {
+        margin-bottom: 30px;
+    }
+
+    .left-content:hover {
+        scale: 1.0;
+    }
+
+    .img-box img:hover {
+        scale: 1.0;
     }
 }
 
