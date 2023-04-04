@@ -71,7 +71,8 @@ body {
 #header {
     display: flex;
     justify-content: center;
-    height: 100px;
+    height: 80px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.3);
 }
 
 .sticky {
@@ -95,8 +96,7 @@ body {
 .logo {
     width: 12%;
     object-fit: contain;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding: 5px 0 5px 16px;
 }
 
 .menu {
@@ -190,12 +190,22 @@ body {
     display: flex;
 }
 
-.service a {
+.service > a {
     width: 55%;
 }
 
-.service a img {
+.scale {
     width: 100%;
+    overflow: hidden;
+}
+
+.scale img {
+    width: 100%;
+    transition: 0.3s;
+}
+
+.scale:hover img {
+    scale: 1.1;
 }
 
 .top-service-desc {
@@ -231,14 +241,6 @@ body {
     color: #393939;
     font-size: 20px;
     font-weight: bold;
-}
-
-.scale {
-    transition: 0.3s;
-}
-
-.scale:hover {
-    scale: 1.1;
 }
 
 .hover:hover {
@@ -344,7 +346,7 @@ body {
     text-align: center;
 }
 
-@media (max-width:1000px) {
+@media screen and (max-width:1000px) {
     .header-menu {
         position: relative;
     }
@@ -408,6 +410,18 @@ body {
 
     .scale:hover {
         scale: 1.0;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .footer-box {
+        display: block;
+        margin: auto;
+    }
+
+    .contact-box {
+        width: 100%;
+        margin-bottom: 20px;
     }
 }
 

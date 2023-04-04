@@ -72,7 +72,8 @@ body {
 #header {
     display: flex;
     justify-content: center;
-    height: 100px;
+    height: 80px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.3);
 }
 
 .sticky {
@@ -96,8 +97,7 @@ body {
 .logo {
    width: 12%;
    object-fit: contain;
-   padding-bottom: 5px;
-   padding-top: 5px;
+   padding: 5px 0 5px 16px;
 }
 
 .menu {
@@ -215,11 +215,15 @@ body {
 }
 
 .left-content {
-    transition: 0.5s;
     position: relative;
+    overflow: hidden;
 }
 
-.left-content:hover {
+.left-content img {
+    transition: 0.5s;
+}
+
+.left-content:hover img{
     scale: 1.1;
 }
 
@@ -261,9 +265,10 @@ body {
     max-width: 50%;
     display: block;
     margin-right: 20px;
+    overflow: hidden;
 }
 
-.img-box img:hover {
+.img-box:hover img {
     scale: 1.1;
 }
 
@@ -354,7 +359,7 @@ body {
     .res-menu {
         display: block;
         position: absolute;
-        top: 100px;
+        top: 80px;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.4);
         padding: 0 16px;
@@ -384,7 +389,7 @@ body {
         display: block;
         position: absolute;
         right: 10px;
-        top: 30px;
+        top: 20px;
         cursor: pointer;
     }
 
@@ -398,7 +403,7 @@ body {
     }
 
     .about-left-content, .about-right-content {
-    width: 100%;
+        width: 100%;
     }
 
     .about-left-content {
@@ -425,6 +430,16 @@ body {
 
     .img-box img:hover {
         scale: 1.0;
+    }
+    
+    .footer-box {
+        display: block;
+        margin: auto;
+    }
+
+    .contact-box {
+        width: 100%;
+        margin-bottom: 20px;
     }
 }
 

@@ -17,7 +17,7 @@
                 <div class="hotline">Hotline: 0936584858</div>
             </div>
         </div>
-        <div id="name">CÔNG TY TNHH ĐẦU TƯ XÂY DỰNG VÀ DỊCH VỤ LÀM SẠCH HOÀN HẢO</div>
+        <div id="name-header">CÔNG TY TNHH ĐẦU TƯ XÂY DỰNG VÀ DỊCH VỤ LÀM SẠCH HOÀN HẢO</div>
         <div id="header">
             <div class="header-menu">
                 <img class="logo" src="./img/logo.jpg" alt="">
@@ -35,7 +35,6 @@
                     <div class="list-menu">
                         <a href="./service.html">
                             <span>Dịch vụ</span>
-                            <i class="fa fa-angle-down"></i>
                         </a>
                     </div>
                     <div class="list-menu">
@@ -59,25 +58,36 @@
                 </div>
             </div>
         </div>
-        <div class="container content">
-            <form action="action_page.php">
-          
-              <label for="fname">Họ và tên</label>
-              <input type="text" id="fname" name="firstname" placeholder="Họ và tên">
-          
-              <label for="lname">Email</label>
-              <input type="text" id="email" name="email" placeholder="Email">
-          
-              <label for="country">Số điện thoại</label>
-              <input type="text" id="number" name="number" placeholder="Số điện thoại">
-          
-              <label for="subject">Nội dung</label>
-              <textarea id="subject" name="subject" placeholder="Nội dung" style="height:200px"></textarea>
-          
-              <input type="submit" value="Submit">
-          
+        <div class="form-container content">
+            <form>
+                <div class="form-control">
+                    <label for="name">Họ và tên</label>
+                    <input type="text" id="name" name="name" placeholder="Họ và tên" >
+                    <span class="errors"></span>
+                </div>
+                <div class="form-control">
+                    <label for="email">Email</label>
+                    <input type="text" placeholder="Email" id="email" name="email" >
+                    <span class="errors"></span>
+                </div>
+                <div class="form-control">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="text" placeholder="Số điện thoại" id="phone" name="phone" >
+                    <span class="errors"></span>
+                </div>
+                <div class="form-control">
+                    <label for="phone">Địa chỉ</label>
+                    <input type="text" placeholder="Địa chỉ" id="address" name="phone" >
+                    <span class="errors"></span>
+                </div>
+                <div class="form-control">
+                    <label for="subject">Nội dung</label>
+                    <textarea placeholder="Nội dung" cols="132" rows="5" name="subject" id="subject"></textarea>
+                    <span class="errors"></span>
+                </div>
+                <button type="submit" value="Submit">Submit</button>
             </form>
-        </div>
+          </div>
         <div id="footer">
             <div class="content footer-box">
                 <div class="contact-box">
@@ -134,6 +144,7 @@
             </div>
         </div>
     </div>
+    <script src="./js/main.js"></script>
     <script src="./js/contact.js"></script>
 </body>
 </html>

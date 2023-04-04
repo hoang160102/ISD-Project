@@ -1,18 +1,64 @@
-window.onscroll = function() {
-    stickyNavbar()
+let getName = document.querySelector('#name')
+let getEmail = document.querySelector('#email')
+let getPhone = document.querySelector('#phone')
+let getSubject = document.querySelector('#subject')
+let getAddress = document.querySelector('#address')
+let getForm = document.querySelector('form')
+
+function showError(input, message) {
+    input.className = 'error'
+    let getFormControl = input.parentElement
+    let getErrors = getFormControl.querySelector('.errors')
+    getErrors.innerText = message
 }
-let getHeader = document.querySelector('#header')
-let stick = getHeader.offsetTop
-function stickyNavbar() {
-    if (window.pageYOffset >=stick) {
-        getHeader.classList.add("sticky")
+
+function showSuccess(input) {
+    let getFormControl = input.parentElement
+    let getErrors = getFormControl.querySelector('.errors')
+    input.classList.remove('error')
+    getErrors.innerText = ''
+}
+
+function checkEmail(input) {
+    let regex =  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    input.value = input.value.trim()
+    if (regex.test(input.value)) {
+        showSuccess(input)
     }
     else {
-        getHeader.classList.remove("sticky")
+        showError(input, 'Email không hợp lệ')
     }
 }
 
-function displayTopNav() {
-    let getTopNav = document.querySelector('.menu')
-    getTopNav.classList.toggle('res-menu')
+function checkPhoneNumber(input) {
+    let num = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+    input.value = input.value.trim()
+    if (num.test(input.value)) {
+        showSuccess(input)
+    }
+    else {
+        showError(input, 'Số điện thoại không hợp lệ')
+    }
 }
+
+function checkEmpty(listInput) {
+    for (let i = 0; i < listInput.length; i++) {
+        listInput[i].value = listInput[i].value.trim()
+        if (!listInput[i].value) {
+            showError(listInput[i], 'Kiểm tra dữ liệu nhập vào')
+        }
+        else {
+            showSuccess(listInput[i])
+        }
+    }
+}
+
+getForm.addEventListener('submit', function(e) {
+    e.preventDefault()
+    checkEmpty([getName, getEmail, getPhone, getAddress, getSubject])
+    checkEmail(getEmail)
+    checkPhoneNumber(getPhone)
+})
+
+
+
