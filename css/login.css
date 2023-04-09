@@ -16,22 +16,21 @@ body {
 
 .container {
     width: 400px;
-    text-align: center;
     background: #fff;
     border-radius: 10px;
 }
 
 .container h1 {
     margin-top: 20px;
+    text-align: center;
 }
 
-.container form {
+.container .form {
     padding: 0 40px;
 }
 
 .form-control {
     margin: 40px 0;
-    border-bottom: 2px solid #adadad;
 }
 
 .form-control input {
@@ -40,6 +39,8 @@ body {
     outline: none;
     font-size: 17px;
     height: 40px;
+    border-bottom: 2px solid #adadad;
+    margin-bottom: 10px;
 }
 
 .submit-form {
@@ -50,19 +51,27 @@ body {
     outline: none;
     border-radius: 25px;
     background: #F73030;
-    height: 50px;
+    line-height: 50px;
     transition: 0.5s;
     cursor: pointer;
     color: #fff;
+    text-align: center;
 }
 
 .submit-form:hover {
     color: #ccc;
 }
 
+.email-msg, .pass-msg {
+    color: red;
+    font-size: 15px;
+    text-align: left;
+}
+
 .signup-link {
     margin: 20px 0 30px;
     font-size: 18px;
+    text-align: center;
 }
 
 .signup-link a {

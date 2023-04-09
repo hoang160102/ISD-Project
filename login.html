@@ -10,20 +10,21 @@
 <body>
     <div class="container">
         <h1>Login</h1>
-        <form>
+        <div class="form">
             <div class="form-control">
-                <input type="text" placeholder="Username" id="username">
-                <span></span>
+                <input type="text" placeholder="Email" id="email">
+                <span class="email-msg"></span>
             </div>
             <div class="form-control">
-                <input type="text" placeholder="Password" id="password">
-                <span></span>
+                <input type="password" placeholder="Password" id="password">
+                <span class="pass-msg"></span>
             </div>
-            <input class="submit-form" type="submit" value="Login">
+            <div class="submit-form">Login</div>
             <div class="signup-link">Not a member?
                 <a href="./register.html">SignUp</a>
             </div>
-        </form>
+        </div>
     </div>
+    <script src="./js/login.js"></script>
 </body>
 </html>

@@ -4,31 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
     <link rel="stylesheet" href="./css/register.css">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <h1>Register</h1>
-        <form>
+        <h1>Đăng ký</h1>
+        <div class="form">
             <div class="form-control">
-                <input type="text" placeholder="Username" id="username">
+                <input type="text" placeholder="Họ và tên" id="username">
                 <span></span>
+                <small></small>
             </div>
             <div class="form-control">
                 <input type="text" placeholder="Email" id="email">
                 <span></span>
+                <small></small>
             </div>
             <div class="form-control">
-                <input type="text" placeholder="Password" id="password">
+                <input type="text" placeholder="Số điện thoại" id="phone">
                 <span></span>
+                <small></small>
             </div>
             <div class="form-control">
-                <input type="text" placeholder="Confirm Password" id="confirm-password">
+                <input type="password" placeholder="Mật khẩu" id="password">
                 <span></span>
+                <small></small>
             </div>
-            <input class="submit-form" type="submit" value="Sign Up">
-        </form>
+            <div class="submit-form">Sign Up</div>
+        </div>
     </div>
+    <div id="toast">
+
+    </div>
+    <script src="./js/register.js"></script>
 </body>
 </html>

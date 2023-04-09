@@ -25,13 +25,12 @@ body {
     margin-top: 20px;
 }
 
-.container form {
+.container .form {
     padding: 0 40px;
 }
 
 .form-control {
     margin: 40px 0;
-    border-bottom: 2px solid #adadad;
 }
 
 .form-control input {
@@ -40,6 +39,38 @@ body {
     outline: none;
     font-size: 17px;
     height: 40px;
+    border-bottom: 2px solid #adadad;
+}
+
+.form-control.success {
+	border-bottom-color: #2691d9;
+}
+
+.form-control.error {
+	border-bottom-color: #e74c3c;
+}
+
+small {
+	position: absolute;
+	left: 0;
+	top: 100%;
+	margin-top: 3px;
+	color: #e74c3c;
+}
+
+.form-control span::before {
+	content: '';
+	position: absolute;
+	top: 40px;
+	left: 0;
+	width: 0%;
+	height: 2px;
+	background: #2691d9;
+	transition: 0.3s;
+}
+
+.form-control input:focus ~ span::before {
+	width: 100%;
 }
 
 .submit-form {
@@ -50,8 +81,7 @@ body {
     outline: none;
     border-radius: 25px;
     background: #F73030;
-    height: 50px;
-    transition: 0.5s;
+    line-height: 50px;
     cursor: pointer;
     color: #fff;
 }
@@ -60,4 +90,85 @@ body {
     color: #ccc;
 }
 
+#toast {
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	display: flex;
+	flex-direction: column;
+}
 
+.toast {
+	padding: 20px;
+	border-radius: 4px;
+	overflow: hidden;
+	margin-bottom: 10px;
+	animation: show_slide 1s ease forwards;
+	display: flex;
+	align-items: center;
+	border-left: 6px solid;
+    background-color: rgba(0, 128, 0, 0.4);
+	border-color: rgb(0, 128, 0);
+}
+
+.toast i {
+	font-size: 28px;
+	color: white;
+}
+
+.toast .msg {
+	padding: 0 20px;
+	font-size: 16px;
+	color: white;
+}
+
+.countdown {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	z-index: 1;
+	animation: countdown 2s linear forwards;
+    background-color: rgb(0, 128, 0);
+}
+
+
+@keyframes countdown {
+	20% {
+		width: 100%;
+	}
+	100% {
+		width: 0;
+	}
+}
+
+@keyframes show_slide {
+	0% {
+		transform: translateX(100%);
+	}
+	40% {
+		transform: translateX(-10%);
+	}
+	80% {
+		transform: translateX(0%);
+	}
+	100% {
+		transform: translateX(-10px);
+	}
+}
+
+@keyframes hide_slide {
+	0% {
+		transform: translateX(-10px);
+	}
+	40% {
+		transform: translateX(0%);
+	}
+	80% {
+		transform: translateX(-10%);
+	}
+	100% {
+		transform: translateX(120%);
+	}
+}
