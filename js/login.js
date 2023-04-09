@@ -18,16 +18,18 @@ getSubmitForm.addEventListener('click', function() {
       }).then(res => res.json())
         .then(res => {
             console.log(res)
-            window.location.assign('../adminpage/admin.html')
+            setTimeout(() => {
+                window.location.assign('../adminpage/admin.html')
+            }, 2000)
         })
         .catch((errorMessage) => {
             console.log(errorMessage)
             if(errorMessage.toString().includes("The user not found")) {
-                getEmailMessage.innerText = 'Email khong ton tai'
+                getEmailMessage.innerText = 'Email không tồn tại'
                 getPassMessage.innerText = ''
             }
             if(errorMessage.toString().includes("password is wrong")) {
-                getPassMessage.innerText = 'Mat khau khong chinh xac, xin vui long nhap lai'
+                getPassMessage.innerText = 'Mật khẩu không chính xác'
                 getEmailMessage.innerText = ''
             }
             return 456;
