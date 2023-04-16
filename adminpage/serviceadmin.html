@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./admincss/serviceadmin.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <div id="header">
+            <a class="toWebsite" href="../homepage.html">Vào trang web</a>
+        </div>
+        <div class="nav-bar">
+            <div class="nav-menu" style="font-size: 25px; color: #ccc;">
+                <i class="fa fa-user" style="margin-right: 10px;"></i>
+                <div class="admin">Administrator</div>
+            </div>
+            <div class="nav-menu">
+                <i class="fa fa-home mgright"></i>
+                <div class="nav-title">Trang chủ Admin</div>
+            </div>
+            <div class="nav-menu" onclick="navigateToUser()">
+                <i class="fa fa-users mgright"></i>
+                <div class="nav-title">Quản trị khách hàng</div>
+            </div>
+            <div class="nav-menu" onclick="navigateToService()">
+                <i class="fa fa-servicestack mgright"></i>
+                <div class="nav-title">Quản trị dịch vụ</div>
+            </div>
+            <div class="nav-menu" onclick="navigateToNews()">
+                <i class="fa fa-newspaper mgright"></i>
+                <div class="nav-title">Quản trị tin tức</div>
+            </div>
+        </div>
+        <div id="content">
+            <div class="header-content">
+                <div class="home-title">
+                    <i class="fa fa-home"></i>
+                    <div class="admin-home-title">Trang chủ</div>
+                </div>
+                <i class="fa fa-angle-right"></i>
+                <div class="list">Quản trị dịch vụ</div>
+            </div>
+            <div class="content">
+                <input type="text" placeholder="Tìm kiếm dịch vụ">
+                <button>
+                    <i class="fa fa-plus"></i>
+                    Thêm mới
+                </button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="width: 10%;"></th>
+                            <th style="width: 25%;">Danh mục</th>
+                            <th style="width: 25%;">Tiêu đề</th>
+                            <th style="width: 20%;">Ảnh</th>
+                            <th>Hiển thị</th>
+                            <th>Chỉnh sửa</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: center;">
+                                <button class="delButton">Delete</button>
+                            </td>
+                            <td>Vệ sinh công nghiệp</td>
+                            <td>Vệ sinh nhà ở, trường học</td>
+                            <td>
+                                <img src="../img/slideservice.png" alt="">
+                            </td>
+                            <td style="text-align: center;">
+                                <input type="checkbox" id="myCheck">
+                            </td>
+                            <td style="text-align: center;">
+                                <i class="fa fa-user-pen"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">
+                                <button class="delButton">Delete</button>
+                            </td>
+                            <td>Vệ sinh công nghiệp</td>
+                            <td>Vệ sinh nhà ở, trường học</td>
+                            <td>
+                                <img src="../img/slideservice.png" alt="">
+                            </td>
+                            <td style="text-align: center;">
+                                <input type="checkbox" id="myCheck">
+                            </td>
+                            <td style="text-align: center;">
+                                <i class="fa fa-user-pen"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">
+                                <button class="delButton">Delete</button>
+                            </td>
+                            <td>Vệ sinh công nghiệp</td>
+                            <td>Vệ sinh nhà ở, trường học</td>
+                            <td>
+                                <img src="../img/slideservice.png" alt="">
+                            </td>
+                            <td style="text-align: center;">
+                                <input type="checkbox" id="myCheck">
+                            </td>
+                            <td style="text-align: center;">
+                                <i class="fa fa-user-pen"></i>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: center;">
+                                <button class="delButton">Delete</button>
+                            </td>
+                            <td>Vệ sinh công nghiệp</td>
+                            <td>Vệ sinh nhà ở</td>
+                            <td>
+                                <img src="../img/slideservice.png" alt="">
+                            </td>
+                            <td style="text-align: center;">
+                                <input type="checkbox" id="myCheck">
+                            </td>
+                            <td style="text-align: center;">
+                                <i class="fa fa-user-pen"></i>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="./adminjs/admin.js"></script>
+</body>
+</html>

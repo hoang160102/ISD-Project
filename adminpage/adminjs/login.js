@@ -19,7 +19,7 @@ getSubmitForm.addEventListener('click', function() {
         .then(res => {
             console.log(res)
             setTimeout(() => {
-                window.location.assign('../adminpage/admin.html')
+                window.location.assign('./user.html')
             }, 2000)
         })
         .catch((errorMessage) => {

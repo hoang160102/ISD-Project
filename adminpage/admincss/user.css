@@ -54,6 +54,15 @@ body {
     width: 80%;
 }
 
+.toWebsite {
+    float: right;
+    color: #ccc;
+    line-height: 60px;
+    margin-right: 40px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
 .header-content {
     display: flex;
     height: 60px;

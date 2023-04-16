@@ -37,26 +37,14 @@ body {
     color: #fff;
 }
 
-.login {
-    padding: 0 10px;
+.about-us {
+    padding: 0 20px;
+    cursor: pointer;
+    color: #fff;
     border-right: 1px solid #fff;
-    cursor: pointer;
-    text-decoration: none;
-    color: #fff;
 }
 
-.signup {
-    padding: 0 10px;
-    cursor: pointer;
-    text-decoration: none;
-    color: #fff;
-}
-
-.login:hover {
-    color: #ccc;
-}
-
-.signup:hover {
+.about-us:hover {
     color: #ccc;
 }
 
