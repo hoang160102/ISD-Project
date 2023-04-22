@@ -13,6 +13,49 @@ body {
 #header {
     height: 60px;
     background-color: #303030;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-header {
+    display: flex;
+    align-items: center;
+}
+
+.nav-account {
+    position: relative;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
+.logout {
+    position: absolute;
+    top: 59px;
+    padding: 10px 20px;
+    border: 1px #ccc solid;
+    margin-left: 30px;
+    background-color: #EBEBEB;
+    cursor: pointer;
+    display: none;
+    border-top: none;
+    z-index: 1;
+}
+
+.nav-account:hover .logout {
+    display: block;
+}
+
+.logout:hover {
+    color: #525252;
+}
+
+.username {
+    margin-right: 30px;
+    color: #ccc;
+    padding:0 30px;
+    font-size: 20px;
 }
 
 .nav-bar {
@@ -55,12 +98,11 @@ body {
 }
 
 .toWebsite {
-    float: right;
     color: #ccc;
-    line-height: 60px;
-    margin-right: 40px;
     text-decoration: none;
     font-size: 20px;
+    border-right: 1px solid #ccc;
+    padding: 0 30px;
 }
 
 .header-content {

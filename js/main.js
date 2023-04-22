@@ -16,3 +16,4 @@ function displayTopNav() {
     let getTopNav = document.querySelector('.menu')
     getTopNav.classList.toggle('res-menu')
 }
+

@@ -6,7 +6,9 @@ let getPassword = document.querySelector('#password')
 let getToastMessage = document.querySelector('#toast')
 let getInputValue = document.querySelectorAll('.form-control input')
 let getMsg = document.querySelectorAll('.form-control span')
-console.log(getMsg)
+let dataUser = {
+    
+}
 getSubmitForm.addEventListener('click', function() {
     for (let i = 0; i < getInputValue.length; i++) {
         if (getInputValue[i].value == '') {
@@ -43,12 +45,12 @@ getSubmitForm.addEventListener('click', function() {
             getMsg[3].innerText = ''
         }
     }
+    let getEmailValue = getEmail.value
+    let getPhoneValue = getPhone.value
+    let getNameValue = getName.value
+    let getPasswordValue = getPassword.value
+    console.log(getEmailValue, getNameValue, getPhoneValue, getPasswordValue)
     if (getMsg[0].innerText == '' && getMsg[1].innerText == '' && getMsg[2].innerText == '' && getMsg[3].innerText == '') {
-        let getEmailValue = getEmail.value
-        let getPhoneValue = getPhone.value
-        let getNameValue = getName.value
-        let getPasswordValue = getPassword.value
-        console.log(getEmailValue, getNameValue, getPhoneValue, getPasswordValue)
         let toasts = {
             icon: '<i class="fa fa-check-circle"></i>',
             msg: 'Đăng ký thành công'

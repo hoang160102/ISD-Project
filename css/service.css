@@ -163,18 +163,6 @@ body {
     width: 26%;
 }
 
-.service-box {
-    margin-bottom: 30px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #ccc;
-}
-
-.service-heading {
-    font-size: 30px;
-    color: #393939;
-    margin-bottom: 20px;
-}
-
 .service {
     display: flex;
 }
@@ -223,6 +211,7 @@ body {
 
 .rest-service-desc {
     margin-left: 25px;
+    width: 50%;
 }
 
 .desc {

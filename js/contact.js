@@ -4,7 +4,6 @@ let getPhone = document.querySelector('#phone')
 let getSubject = document.querySelector('#subject')
 let getAddress = document.querySelector('#address')
 let getForm = document.querySelector('form')
-
 function showError(input, message) {
     input.className = 'error'
     let getFormControl = input.parentElement
@@ -24,6 +23,7 @@ function checkEmail(input) {
     input.value = input.value.trim()
     if (regex.test(input.value)) {
         showSuccess(input)
+        return true
     }
     else {
         showError(input, 'Email không hợp lệ')
@@ -35,6 +35,7 @@ function checkPhoneNumber(input) {
     input.value = input.value.trim()
     if (num.test(input.value)) {
         showSuccess(input)
+        return true
     }
     else {
         showError(input, 'Số điện thoại không hợp lệ')
@@ -44,20 +45,21 @@ function checkPhoneNumber(input) {
 function checkEmpty(listInput) {
     for (let i = 0; i < listInput.length; i++) {
         listInput[i].value = listInput[i].value.trim()
-        if (!listInput[i].value) {
+        if (listInput[i].value == '') {
             showError(listInput[i], 'Kiểm tra dữ liệu nhập vào')
         }
         else {
             showSuccess(listInput[i])
+            return true
         }
     }
 }
 
 getForm.addEventListener('submit', function(e) {
     e.preventDefault()
-    checkEmpty([getName, getEmail, getPhone, getAddress, getSubject])
-    checkEmail(getEmail)
-    checkPhoneNumber(getPhone)
+    if (checkEmpty([getName, getEmail, getPhone, getAddress, getSubject]) && checkEmail(getEmail) && checkPhoneNumber(getPhone)) {
+        alert('Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất')
+    }
 })
 
 

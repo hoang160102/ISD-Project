@@ -18,6 +18,13 @@ getSubmitForm.addEventListener('click', function() {
       }).then(res => res.json())
         .then(res => {
             console.log(res)
+            let userInfo = {
+                'gmail': res.user,
+                'userToker': res.token,
+                'nameOfUser': res.name
+            }
+            console.log(userInfo)
+            localStorage.setItem('getUser', JSON.stringify(userInfo))
             setTimeout(() => {
                 window.location.assign('./user.html')
             }, 2000)
