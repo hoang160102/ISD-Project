@@ -171,7 +171,7 @@ body {
 }
 
 .right-content {
-    width: 25%;
+    width: 26%;
 }
 
 .img {
@@ -185,8 +185,6 @@ body {
 .service-box {
     margin-bottom: 60px;
 }
-
-
 
 .title-service, .title-news {
     font-size: 16px;
@@ -212,7 +210,7 @@ body {
 }
 
 .right-menu li {
-    padding: 12px 15px;
+    padding: 12px;
     text-decoration: none;
 }
 

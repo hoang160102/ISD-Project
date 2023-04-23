@@ -13,15 +13,57 @@ body {
 #header {
     height: 60px;
     background-color: #303030;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.nav-header {
+    display: flex;
+    align-items: center;
+}
+
+.nav-account {
+    position: relative;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
+.logout {
+    position: absolute;
+    top: 59px;
+    padding: 10px 20px;
+    border: 1px #ccc solid;
+    margin-left: 30px;
+    background-color: #EBEBEB;
+    cursor: pointer;
+    display: none;
+    border-top: none;
+    z-index: 1;
+}
+
+.nav-account:hover .logout {
+    display: block;
+}
+
+.logout:hover {
+    color: #525252;
+}
+
+.username {
+    margin-right: 30px;
+    color: #ccc;
+    padding:0 30px;
+    font-size: 20px;
 }
 
 .toWebsite {
-    float: right;
     color: #ccc;
-    line-height: 60px;
-    margin-right: 40px;
     text-decoration: none;
     font-size: 20px;
+    border-right: 1px solid #ccc;
+    padding: 0 30px;
 }
 
 .nav-bar {
@@ -141,4 +183,92 @@ img {
 
 #myCheck:hover {
     cursor: pointer;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    margin: auto;
+    width: 80%;
+    background-color: #fff;
+    height: 80%;
+    padding: 20px;
+    margin-top: 5%;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 27px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.modal-header span {
+    font-weight: 600;
+}
+
+.modal-header i:hover {
+    cursor: pointer;
+}
+
+.modal-add-service {
+    padding-top: 20px;
+}
+
+.form-control {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.form-control label {
+    font-size: 20px;
+    width: 20%;
+}
+
+.form-control input, .form-control textarea {
+    width: 75%;
+    padding: 10px;
+}
+
+.footer-modal {
+    padding: 20px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer-modal button {
+    padding: 12px 23px;
+    border-radius: 5px;
+    border: none;
+    margin-right: 20px;
+    font-size: 18px;
+}
+
+.cancel {
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.upload {
+    background-color: #0080FF;
+    cursor: pointer;
+}
+
+.cancel:hover {
+    background-color: #A5A5A5;
+}
+
+.upload:hover {
+    background-color: #004C99;
+    color: #ccc;
 }

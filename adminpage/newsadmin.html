@@ -11,7 +11,13 @@
 <body>
     <div id="main">
         <div id="header">
-            <a class="toWebsite" href="../homepage.html">Vào trang web</a>
+            <div class="nav-header">
+                <a class="toWebsite" href="../homepage.html">Vào trang web</a>
+                <div class="nav-account">
+                    <div class="username"></div>
+                    <div class="logout">Đăng xuất</div>
+                </div>
+            </div>
         </div>
         <div class="nav-bar">
             <div class="nav-menu" style="font-size: 25px; color: #ccc;">
@@ -126,6 +132,37 @@
             </div>
         </div>
     </div>
+    <div id="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Thông tin tin tức</span>
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="modal-add-service">
+                <div class="form-control">
+                    <label for="name">Tiêu đề:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-control">
+                    <label>Hình ảnh:</label>
+                    <input type="file" id="file-upload">
+                </div>
+                <div class="form-control">
+                    <label>Thông tin chính:</label>
+                    <textarea placeholder="Nội dung" rows="5" name="subject" id="subject"></textarea>
+                </div>
+                <div class="form-control">
+                    <label>Thông tin:</label>
+                    <textarea placeholder="Nội dung" rows="5" name="subject" id="subject"></textarea>
+                </div>
+            </div>
+            <div class="footer-modal">
+                <button class="cancel">Hủy</button>
+                <button class="upload">Đăng</button>
+            </div>
+        </div>
+    </div>
     <script src="./adminjs/admin.js"></script>
+    <script src="./adminjs/news.js"></script>
 </body>
 </html>

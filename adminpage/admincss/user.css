@@ -58,6 +58,14 @@ body {
     font-size: 20px;
 }
 
+.toWebsite {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 20px;
+    border-right: 1px solid #ccc;
+    padding: 0 30px;
+}
+
 .nav-bar {
     width: 20%;
     position: absolute;
@@ -97,13 +105,6 @@ body {
     width: 80%;
 }
 
-.toWebsite {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 20px;
-    border-right: 1px solid #ccc;
-    padding: 0 30px;
-}
 
 .header-content {
     display: flex;

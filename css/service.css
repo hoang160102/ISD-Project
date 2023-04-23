@@ -45,7 +45,6 @@ body {
 
 .hotline {
     margin-left: 20px;
-    padding-right: 16px;
 }
 
 #name {
@@ -61,7 +60,6 @@ body {
     display: flex;
     justify-content: center;
     height: 80px;
-    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.3);
 }
 
 .sticky {
@@ -167,22 +165,12 @@ body {
     display: flex;
 }
 
-.service > a {
+.service a {
     width: 55%;
 }
 
-.scale {
+.service a img {
     width: 100%;
-    overflow: hidden;
-}
-
-.scale img {
-    width: 100%;
-    transition: 0.3s;
-}
-
-.scale:hover img {
-    scale: 1.1;
 }
 
 .top-service-desc {
@@ -219,6 +207,14 @@ body {
     color: #393939;
     font-size: 20px;
     font-weight: bold;
+}
+
+.scale {
+    transition: 0.3s;
+}
+
+.scale:hover {
+    scale: 1.1;
 }
 
 .hover:hover {
