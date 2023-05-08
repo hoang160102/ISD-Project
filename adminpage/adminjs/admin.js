@@ -10,8 +10,9 @@ function navigateToNews() {
     window.location.assign('./newsadmin.html')
 }
 
-
-let getName = JSON.parse(localStorage.getItem('getUser')).nameOfUser
+let getUser = JSON.parse(localStorage.getItem('getUser'))
+console.log(getUser)
+let getName = getUser.nameOfUser
 let getUserNameElement = document.querySelector('.username')
 getUserNameElement.innerText = getName
 

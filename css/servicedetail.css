@@ -148,11 +148,18 @@ body {
 
 .content-box {
     display: flex;
+    justify-content: space-between;
 }
 
 .detail-box {
     width: 70%;
     margin-bottom: 20px;
+}
+
+.detail-box img {
+    width: 85%;
+    height: 35%;
+    object-fit: contain;
 }
 
 .service-box {
@@ -164,8 +171,14 @@ body {
     color: #58595b;
 }
 
+
 .detail-box p {
     line-height: 1.5;
+}
+
+p strong {
+    color: #58595b;
+    font-size: 20px;
 }
 
 .service-right-content {

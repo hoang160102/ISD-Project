@@ -146,85 +146,44 @@ body {
     cursor: pointer;
 }
 
-.service-content {
+.content-box {
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    padding: 0 16px;
 }
 
-.service-left-content {
+.detail-box {
     width: 70%;
+    margin-bottom: 40px;
+}
+
+.detail-box img {
+    width: 100%;
+}
+
+.service-box {
+    margin-bottom: 60px;
+}
+
+.detail-box h1 {
+    margin-bottom: 20px;
+    color: #58595b;
+}
+
+
+.detail-box p {
+    line-height: 1.5;
+}
+
+p strong {
+    color: #58595b;
+    font-size: 20px;
 }
 
 .service-right-content {
     width: 26%;
 }
 
-.service {
-    display: flex;
-}
-
-.service a img {
-    width: 100%;
-}
-
-.top-service-desc {
-    margin-left: 30px;
-}
-
-.top-service-desc a {
-    text-decoration: none;
-    color: #404040;
-    font-weight: bold;
-    font-size: 23px;
-}
-
-.rest-service-box {
-    margin-bottom: 30px;
-}
-
-.rest-service-box > a{
-    max-width: 40%;
-    display: block;
-}
-
-.rest-service-box a img {
-    width: 100%;
-}
-
-.rest-service-desc {
-    margin-left: 25px;
-    width: 50%;
-}
-
-.desc {
-    text-decoration: none;
-    color: #393939;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.scale {
-    width: 100%;
-    overflow: hidden;
-}
-
-.scale img {
-    width: 100%;
-    transition: 0.3s;
-}
-
-.scale:hover img {
-    scale: 1.1;
-}
-
-.hover:hover {
-    color: #d82726;
-}
-
-.title-news {
-    background-color: #EEB422;
+.title-service, .title-news {
     font-size: 16px;
     font-weight: 700;
     line-height: 42px;
@@ -233,7 +192,15 @@ body {
     text-transform: uppercase;
 }
 
-.menu-news {
+.title-service {
+    background-color: #d82726;
+}
+
+.title-news {
+    background-color: #EEB422;
+}
+
+.menu-service, .menu-news {
     border: 1px solid #ccc;
     list-style-type: none;
     background: #f1f1f1;
@@ -367,26 +334,6 @@ body {
         top: 30px;
         cursor: pointer;
     }
-
-    .service-content {
-        display: block;
-    }
-
-    .img-box {
-        width: 30%;
-    }
-
-    .service-right-content {
-        display: none;
-    }
-
-    .service-left-content {
-        width: 100%;
-    }
-
-    .scale:hover {
-        scale: 1.0;
-    }
 }
 
 @media screen and (max-width: 740px) {
@@ -400,5 +347,3 @@ body {
         margin-bottom: 20px;
     }
 }
-
-

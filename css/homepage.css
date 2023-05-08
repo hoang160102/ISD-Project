@@ -207,15 +207,21 @@ body {
     overflow: hidden;
 }
 
+.left-box {
+    height: 100%;
+    cursor: pointer;
+}
+
 .left-content img {
     transition: 0.5s;
+    object-fit: cover;
 }
 
 .left-content:hover img{
     scale: 1.1;
 }
 
-.left-content, .right-content {
+.left-content {
     width: 45%;
 }
 
@@ -227,7 +233,6 @@ body {
 .title-service {
     position: absolute;
     bottom: 0;
-    padding: 15px;
     color: #fff;
     font-size: 20px;
     background-color: rgba(0, 0, 0, 0.6);
@@ -235,9 +240,16 @@ body {
     font-weight: 600;
 }
 
-.title-service a {
+.title-service .name-content {
     color: #fff;
     text-decoration: none;
+    width: 100%;
+    display: block;
+    padding: 15px;
+}
+
+.right-content {
+    width: 45%;
 }
 
 .right-menu-content {
@@ -254,6 +266,7 @@ body {
     display: block;
     margin-right: 20px;
     overflow: hidden;
+    cursor: pointer;;
 }
 
 .img-box:hover img {
@@ -263,21 +276,23 @@ body {
 .img-box img {
     width: 100%;
     transition: 0.5s;
+    object-fit: cover;
 }
 
 .desc {
     text-align: justify;
+    text-decoration: none;
 }
 
-.desc a {
-    text-decoration: none;
+.desc div {
     color: #333333;
     font-weight: 600;
     font-size: 20px;
     transition: 0.3s;
+    cursor: pointer;
 }
 
-.desc a:hover {
+.desc div:hover {
     color: #d82726;
 }
 

@@ -51,7 +51,7 @@
                 <div class="list">Quản trị dịch vụ</div>
             </div>
             <div class="content">
-                <input type="text" placeholder="Tìm kiếm dịch vụ">
+                <input id="search" type="text" placeholder="Tìm kiếm dịch vụ">
                 <button>
                     <i class="fa fa-plus"></i>
                     Thêm mới
@@ -67,71 +67,8 @@
                             <th>Chỉnh sửa</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td style="text-align: center;">
-                                <button class="delButton">Delete</button>
-                            </td>
-                            <td>Vệ sinh công nghiệp</td>
-                            <td>Vệ sinh nhà ở, trường học</td>
-                            <td>
-                                <img src="../img/slideservice.png" alt="">
-                            </td>
-                            <td style="text-align: center;">
-                                <input type="checkbox" id="myCheck">
-                            </td>
-                            <td style="text-align: center;">
-                                <i class="fa fa-user-pen"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">
-                                <button class="delButton">Delete</button>
-                            </td>
-                            <td>Vệ sinh công nghiệp</td>
-                            <td>Vệ sinh nhà ở, trường học</td>
-                            <td>
-                                <img src="../img/slideservice.png" alt="">
-                            </td>
-                            <td style="text-align: center;">
-                                <input type="checkbox" id="myCheck">
-                            </td>
-                            <td style="text-align: center;">
-                                <i class="fa fa-user-pen"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">
-                                <button class="delButton">Delete</button>
-                            </td>
-                            <td>Vệ sinh công nghiệp</td>
-                            <td>Vệ sinh nhà ở, trường học</td>
-                            <td>
-                                <img src="../img/slideservice.png" alt="">
-                            </td>
-                            <td style="text-align: center;">
-                                <input type="checkbox" id="myCheck">
-                            </td>
-                            <td style="text-align: center;">
-                                <i class="fa fa-user-pen"></i>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="text-align: center;">
-                                <button class="delButton">Delete</button>
-                            </td>
-                            <td>Vệ sinh công nghiệp</td>
-                            <td>Vệ sinh nhà ở</td>
-                            <td>
-                                <img src="../img/slideservice.png" alt="">
-                            </td>
-                            <td style="text-align: center;">
-                                <input type="checkbox" id="myCheck">
-                            </td>
-                            <td style="text-align: center;">
-                                <i class="fa fa-user-pen"></i>
-                            </td>
-                        </tr>
+                    <tbody class="service-table">
+                        
                     </tbody>
                 </table>
             </div>
@@ -146,11 +83,17 @@
             <div class="modal-add-service">
                 <div class="form-control">
                     <label for="name">Tiêu đề:</label>
-                    <input type="text" id="name" name="name">
+                    <input class="title" type="text" id="name" name="name">
                 </div>
                 <div class="form-control">
-                    <label for="name">Hình ảnh:</label>
-                    <input type="file" id="file-upload">
+                    <label>Hình ảnh:</label>
+                    <input class="image" name="image" type="file" id="file-upload">
+                </div>
+                <div class="form-control">
+                    <label for="category">Danh mục:</label>
+                    <select name="category" id="category">
+            
+                    </select>
                 </div>
                 <div class="form-control">
                     <label for="name">Thông tin dịch vụ:</label>
@@ -159,7 +102,7 @@
             </div>
             <div class="footer-modal">
                 <button class="cancel">Hủy</button>
-                <button class="upload">Đăng</button>
+                <button onclick="createService()" class="upload">Đăng</button>
             </div>
         </div>
     </div>

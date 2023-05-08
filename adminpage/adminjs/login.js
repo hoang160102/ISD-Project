@@ -3,11 +3,9 @@ let getEmail = document.querySelector('#email')
 let getPassword = document.querySelector('#password')
 let getPassMessage = document.querySelector('.pass-msg')
 let getEmailMessage = document.querySelector('.email-msg')
-console.log(getEmailMessage)
 getSubmitForm.addEventListener('click', function() {
     let getEmailValue = getEmail.value
     let getPasswordValue = getPassword.value
-    console.log(getEmailValue, getPasswordValue)
     fetch('http://localhost:3000/api/v1/users/login', {
         method: 'POST',
         headers: {
@@ -20,7 +18,7 @@ getSubmitForm.addEventListener('click', function() {
             console.log(res)
             let userInfo = {
                 'gmail': res.user,
-                'userToker': res.token,
+                'userToken': res.token,
                 'nameOfUser': res.name
             }
             console.log(userInfo)

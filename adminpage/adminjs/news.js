@@ -1,5 +1,4 @@
 let getModal = document.querySelector('#modal')
-let getModalContent = document.querySelector('.modal-content')
 let addBtn = document.querySelector('.content button')
 let getClose = document.querySelector('.modal-header i')
 let getCancel = document.querySelector('.cancel')
