@@ -19,3 +19,27 @@ fetch('http://localhost:3000/api/v1/services', {
             `
         }
     })
+
+    let menuNews = document.querySelector('.menu-news')
+    fetch('http://localhost:3000/api/v1/news', {
+        method: 'GET',
+        headers: {
+            'Content-type': 'application/json'
+        }
+    })
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(news) {
+            for (let i = 0; i < 6; i++) {
+                menuNews.innerHTML +=
+                `
+                     <li>
+                        <a href="./newsdetail.html?id=${news.data[i].id}">
+                            <img class="img-news" src="${news.data[i].images[0].image0}" alt="">
+                            <span>${news.data[i].title}</span>
+                        </a>
+                    </li>
+                `
+            }
+        })

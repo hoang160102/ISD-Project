@@ -26,8 +26,10 @@ let api = 'http://localhost:3000/api/v1/services'
 function renderServices() {
     fetch(api, {
         method: 'GET',
-        'Accept': 'application/json, text/plain, */*',
-        'Content-Type': 'application/json'
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        }
     })
         .then(function(response) {
             return response.json()

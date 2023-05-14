@@ -43,24 +43,56 @@ function checkPhoneNumber(input) {
 }
 
 function checkEmpty(listInput) {
-    for (let i = 0; i < listInput.length; i++) {
-        listInput[i].value = listInput[i].value.trim()
-        if (listInput[i].value == '') {
-            showError(listInput[i], 'Kiểm tra dữ liệu nhập vào')
+    let required = true
+    listInput.forEach(function(input) {
+        if (input.value.length > 0) {
+            showSuccess(input)
         }
         else {
-            showSuccess(listInput[i])
-            return true
+            showError(input, 'Kiểm tra dữ liệu nhập vào')
+            required = false
         }
-    }
+    })
+    return required
 }
 
 getForm.addEventListener('submit', function(e) {
     e.preventDefault()
-    if (checkEmpty([getName, getEmail, getPhone, getAddress, getSubject]) && checkEmail(getEmail) && checkPhoneNumber(getPhone)) {
-        alert('Cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất')
+    if (!checkEmpty([getName, getEmail, getPhone, getAddress, getSubject])) {
+        checkEmail(getEmail)
+        checkPhoneNumber(getPhone)
+    }
+    else {
+        alert("Xin cảm ơn bạn đã liên hệ với chúng tôi. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất")
+        postInformation()
     }
 })
+
+function postInformation() {
+    let userData = {
+        name: getName.value,
+        email: getEmail.value,
+        phone: getPhone.value,
+        address: getAddress.value,
+        content: getSubject.value
+    }
+    fetch('http://localhost:3000/api/v1/orders', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(userData)
+    })
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(data) {
+            console.log(data)
+        })
+        .catch(function(err) {
+            console.log(err)
+        })
+}
 
 
 
