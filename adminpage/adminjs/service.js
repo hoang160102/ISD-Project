@@ -1,9 +1,17 @@
 let getModal = document.querySelector('#modal')
+let getUpdateModal = document.querySelector('#update-modal')
 let addBtn = document.querySelector('.content button')
 let getClose = document.querySelector('.modal-header i')
 let getCancel = document.querySelector('.cancel')
 let getCate = document.querySelector('#category')
+let getCateUpdate = document.querySelector('#category-update')
 let getServiceTable = document.querySelector('.service-table')
+let getDelModal = document.querySelector('#delete-user-modal')
+let getCancelBtn = document.querySelector('.cancel-delete')
+let getDelBtn = document.querySelector('.delete')
+let getTiclose = document.querySelector('.close-del')
+let updateBtn = document.querySelector('.update')
+let getCancelupdate = document.querySelector('.cancel-update')
 addBtn.addEventListener('click', function() {
     getModal.style.display = 'block'
 })
@@ -19,6 +27,9 @@ getCancel.addEventListener('click', function() {
 window.onclick = function(event) {
     if (event.target == getModal) {
         getModal.style.display = "none";
+    }
+    if (event.target == getUpdateModal) {
+        getUpdateModal.style.display = "none"
     }
 }
 
@@ -51,7 +62,7 @@ function renderServices() {
                         <input type="checkbox" id="myCheck">
                     </td>
                     <td style="text-align: center;">
-                        <i class="fa fa-user-pen"></i>
+                        <i onclick="updateService('${service.id}')"style="cursor: pointer" class="fa fa-user-pen"></i>
                     </td>
                 </tr>
         `
@@ -71,9 +82,11 @@ function renderCategories() {
         return response.json()
     })
     .then(function(categories) {
-        console.log(categories)
         for(let i = 0; i < categories.length; i++) {
             getCate.innerHTML += `
+            <option value="${categories[i].id}">${categories[i].name}</option>
+            `
+            getCateUpdate.innerHTML += `
             <option value="${categories[i].id}">${categories[i].name}</option>
             `
         }
@@ -83,17 +96,17 @@ renderCategories()
 
 let getAdmin = JSON.parse(localStorage.getItem('getUser'))
 function createService() {
-    console.log(getCate.value)
-    let getTitle = document.querySelector('.title').value
     let getImg = document.querySelector('.image')
-    let getContent = document.querySelector('#subject').value
     console.log([getImg]) 
+    let getTitle = document.querySelector('.title').value
+    let getContent = document.querySelector('#subject').value
     const formData = new FormData();
     const docsfile = getImg.files
     formData.append("image", docsfile[0])
     formData.append("name", getTitle)
     formData.append("description", getContent)
     formData.append("category", getCate.value)
+    console.log(formData)
     fetch(api, {
         method: 'POST',
         headers: {
@@ -112,23 +125,79 @@ function createService() {
 }
 
 function deleteService(id) {
-    fetch(api + '/' + id, {
-        method: 'DELETE',
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${getAdmin.userToken}`
+    getDelModal.style.display = 'block'
+        getCancelBtn.addEventListener('click', function() {
+            getDelModal.style.display = 'none'
+        })
+        getTiclose.addEventListener('click', function() {
+            getDelModal.style.display = 'none'
+        })
+        window.onclick = function(event) {
+            if (event.target == getDelModal) {
+                getDelModal.style.display = "none";
+            }
         }
-    })
-    .then(function(response) {
-        return response.json()
-    })
-    .then(function() {
-        let serviceItem = document.querySelector('.service-item-' + id)
-        if (serviceItem) {
-            serviceItem.remove()
-        }
-    })
+        getDelBtn.addEventListener('click', function() {
+            fetch(api + '/' + id, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${getAdmin.userToken}`
+                }
+            })
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function() {
+                let serviceItem = document.querySelector('.service-item-' + id)
+                if (serviceItem) {
+                    serviceItem.remove()
+                    getDelModal.style.display = 'none'
+                    alert("Xóa thành công")
+                }
+            })
+        })
+    
 }
 
-
+function updateService(serviceId) {
+    getUpdateModal.style.display = 'block'
+    // fetch('http://localhost:3000/api/v1/services')
+    // .then(function(response) {
+    //     return response.json()
+    // })
+    // .then(function(existedData) {
+    //     let getItemData = existedData.filter(function(dataItem) {
+    //         return dataItem.id == serviceId
+    //     })
+    //     console.log(typeof getItemData[0])
+    //     updateBtn.addEventListener('click', function() {
+    //         let getTitleUpdate = document.querySelector('.title-update').value
+    //         let getContentUpdate = document.querySelector('#subject-update').value
+    //         let getImgUpdate = document.querySelector('.image-update')
+    //         getItemData[0] = new FormData()
+    //         const docsFile = getImgUpdate.files
+    //         getItemData[0].append("image", docsFile[0])
+    //         getItemData[0].append("name", getTitleUpdate)
+    //         getItemData[0].append("description", getContentUpdate)
+    //         getItemData[0].append("category", getCateUpdate.value)
+    //         console.log(typeof getItemData[0])
+    //         fetch('http://localhost:3000/api/v1/services', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //                 'Authorization': `Bearer ${getAdmin.userToken}`
+    //             },
+    //             body: getItemData[0]
+    //         })
+    //         .then(function(res) {
+    //             return res.json()
+    //         })
+    //         .then(function(dataUpdate) {
+    //             console.log(dataUpdate)
+    //         })
+    //     })
+    // })
+    
+}

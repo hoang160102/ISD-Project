@@ -106,6 +106,50 @@
             </div>
         </div>
     </div>
+    <div id="update-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Thông tin dịch vụ</span>
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="modal-add-service">
+                <div class="form-control">
+                    <label for="name">Tiêu đề:</label>
+                    <input class="title-update" type="text" id="name" name="name">
+                </div>
+                <div class="form-control">
+                    <label>Hình ảnh:</label>
+                    <input class="image-update" name="image" type="file" id="file-upload">
+                </div>
+                <div class="form-control">
+                    <label for="category">Danh mục:</label>
+                    <select name="category" id="category-update">
+            
+                    </select>
+                </div>
+                <div class="form-control">
+                    <label for="name">Thông tin dịch vụ:</label>
+                    <textarea placeholder="Nội dung" rows="5" name="subject" id="subject-update"></textarea>
+                </div>
+            </div>
+            <div class="footer-modal">
+                <button class="cancel-update">Hủy</button>
+                <button class="update">Lưu</button>
+            </div>
+        </div>
+    </div>
+    <div id="delete-user-modal">
+        <div class="modal-notify">
+            <i class="close-del fa fa-close"></i>
+            <div class="delete-content">
+                <span>Bạn có chắc chắn muốn xóa ?</span>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel-delete">Hủy</button>
+                <button class="delete">Xóa</button>
+            </div>
+        </div>
+    </div>
     <script src="./adminjs/admin.js"></script>
     <script src="./adminjs/service.js"></script>
     
