@@ -120,6 +120,8 @@ function createService() {
         })
         .then(function(data) {
             console.log(data)
+            alert('Đăng thành công')
+            getModal.style.display = 'none'
         })
         
 }
@@ -199,5 +201,5 @@ function updateService(serviceId) {
     //         })
     //     })
     // })
-    
+
 }
