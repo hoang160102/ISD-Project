@@ -15,11 +15,12 @@ fetch('http://localhost:3000/api/v1/services', {
             return service.id == serviceId
         })
         let html = services.map(function(item) {
+            let desc = item.description.replace(/\n/g, "<br>")
             return `
             <h1>${item.name}</h1>
             <img src="${item.image}" alt="">
             <p style="margin: 20px 0; line-height: 1.5;">
-                ${item.description}
+                ${desc}
             </p>
             `
         })

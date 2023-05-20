@@ -85,49 +85,51 @@
                     <input type="text" id="name" name="name">
                 </div>
                 <div class="form-control">
-                    <label>Hình ảnh 1:</label>
-                    <input type="file" id="file-upload">
-                </div>
-                <div class="form-control">
-                    <label>Hình ảnh 2:</label>
-                    <input type="file" id="file-upload">
-                </div>
-                <div class="form-control">
-                    <label>Hình ảnh 3:</label>
-                    <input type="file" id="file-upload">
-                </div>
-                <div class="form-control">
-                    <label>Hình ảnh 4:</label>
-                    <input type="file" id="file-upload">
-                </div>
-                <div class="form-control">
-                    <label>Hình ảnh 5:</label>
-                    <input type="file" id="file-upload">
+                    <label for="files">Hình ảnh </label>
+                    <input type="file" id="file-upload" name="files" multiple><br><br>
                 </div>
                 <div class="form-control">
                     <label>Thông tin chính:</label>
-                    <textarea placeholder="Nội dung" rows="5" name="subject" id="subject"></textarea>
+                    <textarea placeholder="Nội dung" rows="5" name="subject" id="main-subject"></textarea>
                 </div>
                 <div class="form-control">
-                    <label>Thông tin 1:</label>
-                    <textarea placeholder="Nội dung" rows="5" name="subject" id="subject"></textarea>
-                </div>
-                <div class="form-control">
-                    <label>Thông tin 2:</label>
-                    <textarea placeholder="Nội dung" rows="5" name="subject" id="subject"></textarea>
-                </div>
-                <div class="form-control">
-                    <label>Thông tin 3:</label>
-                    <textarea placeholder="Nội dung" rows="5" name="subject" id="subject"></textarea>
-                </div>
-                <div class="form-control">
-                    <label>Thông tin 4:</label>
+                    <label>Thông tin mô tả:</label>
                     <textarea placeholder="Nội dung" rows="5" name="subject" id="subject"></textarea>
                 </div>
             </div>
             <div class="footer-modal">
                 <button class="cancel">Hủy</button>
-                <button class="upload">Đăng</button>
+                <button onclick="createNews()" class="upload">Đăng</button>
+            </div>
+        </div>
+    </div>
+    <div id="update-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Thông tin tin tức</span>
+                <i class="fa fa-close"></i>
+            </div>
+            <div class="modal-update-news">
+                <div class="form-control">
+                    <label for="name">Tiêu đề:</label>
+                    <input class="title-update" type="text" id="name" name="name">
+                </div>
+                <div class="form-control">
+                    <label for="files">Hình ảnh </label>
+                    <input class="image-update" type="file" id="file-upload" name="files" multiple><br><br>
+                </div>
+                <div class="form-control">
+                    <label>Thông tin chính:</label>
+                    <textarea placeholder="Nội dung" rows="5" name="subject" id="main-subject-update"></textarea>
+                </div>
+                <div class="form-control">
+                    <label>Thông tin mô tả:</label>
+                    <textarea placeholder="Nội dung" rows="5" name="subject" id="subject-update"></textarea>
+                </div>
+            </div>
+            <div class="footer-modal">
+                <button class="cancel-update">Hủy</button>
+                <button onclick="updateNews()" class="update">Lưu</button>
             </div>
         </div>
     </div>

@@ -65,28 +65,28 @@ function getNews(newId) {
             return `
             <h1>${item.title}</h1>
                     <p>
-                        ${item.description2}
+                        ${item.description2.replace(/\n/g, "<br>")}
                     </p>
                     <img src="${item.images[0].image0}" alt="">
                     <br>
 
                     <br>
                     <p>
-                        ${item.description3}
+                        ${item.description3.replace(/\n/g, "<br>")}
                     </p>
                     <img src="${item.images[1].image1}" alt="">
                     <br>
 
                     <br>
                     <p>
-                        ${item.description4}
+                        ${item.description4.replace(/\n/g, "<br>")}
                     </p>
                     <img src="${item.images[2].image2}" alt="">
                     <br>
 
                     <br>
                     <p>
-                        ${item.description5}
+                        ${item.description5.replace(/\n/g, "<br>")}
                     </p>
                     <img src="${item.images[3].image3}" alt="">
             `

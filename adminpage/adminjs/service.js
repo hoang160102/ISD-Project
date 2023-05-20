@@ -11,7 +11,7 @@ let getCancelBtn = document.querySelector('.cancel-delete')
 let getDelBtn = document.querySelector('.delete')
 let getTiclose = document.querySelector('.close-del')
 let updateBtn = document.querySelector('.update')
-let getCancelupdate = document.querySelector('.cancel-update')
+let getCancelUpdate = document.querySelector('.cancel-update')
 addBtn.addEventListener('click', function() {
     getModal.style.display = 'block'
 })
@@ -24,6 +24,10 @@ getCancel.addEventListener('click', function() {
     getModal.style.display = 'none'
 })
 
+getCancelUpdate.addEventListener('click', function() {
+    getUpdateModal.style.display = 'none'
+})
+
 window.onclick = function(event) {
     if (event.target == getModal) {
         getModal.style.display = "none";
@@ -33,9 +37,8 @@ window.onclick = function(event) {
     }
 }
 
-let api = 'http://localhost:3000/api/v1/services'
 function renderServices() {
-    fetch(api, {
+    fetch('http://localhost:3000/api/v1/services', {
         method: 'GET',
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -59,10 +62,7 @@ function renderServices() {
                         <img src="${service.image}" alt="">
                     </td>
                     <td style="text-align: center;">
-                        <input type="checkbox" id="myCheck">
-                    </td>
-                    <td style="text-align: center;">
-                        <i onclick="updateService('${service.id}')"style="cursor: pointer" class="fa fa-user-pen"></i>
+                        <i onclick="updateService('${service.id}')" style="cursor: pointer" class="fa fa-user-pen"></i>
                     </td>
                 </tr>
         `
@@ -100,6 +100,7 @@ function createService() {
     console.log([getImg]) 
     let getTitle = document.querySelector('.title').value
     let getContent = document.querySelector('#subject').value
+    // console.log(getTrueContent)
     const formData = new FormData();
     const docsfile = getImg.files
     formData.append("image", docsfile[0])
@@ -107,7 +108,7 @@ function createService() {
     formData.append("description", getContent)
     formData.append("category", getCate.value)
     console.log(formData)
-    fetch(api, {
+    fetch('http://localhost:3000/api/v1/services', {
         method: 'POST',
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -122,6 +123,7 @@ function createService() {
             console.log(data)
             alert('Đăng thành công')
             getModal.style.display = 'none'
+            renderServices()
         })
         
 }
@@ -140,7 +142,7 @@ function deleteService(id) {
             }
         }
         getDelBtn.addEventListener('click', function() {
-            fetch(api + '/' + id, {
+            fetch('http://localhost:3000/api/v1/services' + '/' + id, {
                 method: 'DELETE',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
@@ -165,41 +167,55 @@ function deleteService(id) {
 
 function updateService(serviceId) {
     getUpdateModal.style.display = 'block'
-    // fetch('http://localhost:3000/api/v1/services')
-    // .then(function(response) {
-    //     return response.json()
-    // })
-    // .then(function(existedData) {
-    //     let getItemData = existedData.filter(function(dataItem) {
-    //         return dataItem.id == serviceId
-    //     })
-    //     console.log(typeof getItemData[0])
-    //     updateBtn.addEventListener('click', function() {
-    //         let getTitleUpdate = document.querySelector('.title-update').value
-    //         let getContentUpdate = document.querySelector('#subject-update').value
-    //         let getImgUpdate = document.querySelector('.image-update')
-    //         getItemData[0] = new FormData()
-    //         const docsFile = getImgUpdate.files
-    //         getItemData[0].append("image", docsFile[0])
-    //         getItemData[0].append("name", getTitleUpdate)
-    //         getItemData[0].append("description", getContentUpdate)
-    //         getItemData[0].append("category", getCateUpdate.value)
-    //         console.log(typeof getItemData[0])
-    //         fetch('http://localhost:3000/api/v1/services', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //                 'Authorization': `Bearer ${getAdmin.userToken}`
-    //             },
-    //             body: getItemData[0]
-    //         })
-    //         .then(function(res) {
-    //             return res.json()
-    //         })
-    //         .then(function(dataUpdate) {
-    //             console.log(dataUpdate)
-    //         })
-    //     })
-    // })
+    fetch('http://localhost:3000/api/v1/services')
+    .then(function(response) {
+        return response.json()
+    })
+    .then(function(existedData) {
+        let getItemData = existedData.filter(function(dataItem) {
+            return dataItem.id == serviceId
+        })
+            updateBtn.addEventListener('click', function() {
+                let getTitleUpdate = document.querySelector('.title-update').value
+                let getContentUpdate = document.querySelector('#subject-update').value
+                let getImgUpdate = document.querySelector('.image-update')
+                getItemData[0] = new FormData()
+                const docsFile = getImgUpdate.files
+                getItemData[0].set("image", docsFile[0])
+                getItemData[0].set("name", getTitleUpdate)
+                getItemData[0].set("description", getContentUpdate)
+                getItemData[0].set("category", getCateUpdate.value)
+                fetch('http://localhost:3000/api/v1/services', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Authorization': `Bearer ${getAdmin.userToken}`
+                    },
+                    body: getItemData[0]
+                })
+                .then(function(res) {
+                    return res.json()
+                })
+                .then(function() {
+                    fetch('http://localhost:3000/api/v1/services' + '/' + serviceId, {
+                        method: 'DELETE',
+                        headers: {
+                            'Accept': 'application/json, text/plain, */*',
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${getAdmin.userToken}`
+                        }
+                        })
+                        .then(function(response) {
+                        return response.json()
+                        })
+                        .then(function() {
+                            alert("Lưu thành công")
+                            getUpdateModal.style.display = 'none'
+                            renderServices()
+                        })
+                })
+            })
+        
+    })
 
 }

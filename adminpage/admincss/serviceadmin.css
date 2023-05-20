@@ -254,7 +254,7 @@ img {
     font-size: 18px;
 }
 
-.cancel {
+.cancel, .cancel-update {
     background-color: #ccc;
     cursor: pointer;
 }
@@ -265,6 +265,10 @@ img {
 }
 
 .cancel:hover {
+    background-color: #A5A5A5;
+}
+
+.cancel-update:hover {
     background-color: #A5A5A5;
 }
 

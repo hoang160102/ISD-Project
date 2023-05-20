@@ -185,7 +185,7 @@ img {
     cursor: pointer;
 }
 
-#modal {
+#modal, #update-modal {
     display: none;
     position: fixed;
     top: 0;
@@ -221,7 +221,7 @@ img {
     cursor: pointer;
 }
 
-.modal-add-service {
+.modal-update-news {
     padding-top: 20px;
 }
 
@@ -254,12 +254,12 @@ img {
     font-size: 18px;
 }
 
-.cancel {
+.cancel, .cancel-update {
     background-color: #ccc;
     cursor: pointer;
 }
 
-.upload {
+.upload, .update {
     background-color: #0080FF;
     cursor: pointer;
 }
@@ -267,6 +267,11 @@ img {
 .cancel:hover {
     background-color: #A5A5A5;
 }
+
+.cancel-update:hover {
+    background-color: #A5A5A5;
+}
+
 
 .upload:hover {
     background-color: #004C99;
