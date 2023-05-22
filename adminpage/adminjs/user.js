@@ -22,7 +22,7 @@ fetch('http://localhost:3000/api/v1/orders', {
             return `
             <tr class="user-item-${user.id}">
                             <td style= "text-align:center">
-                                <button onclick="delUser('${user.id}')" style="padding: 10px 15px; cursor:pointer">Xóa<button>
+                                <button onclick="delUser('${user.id}')" style="padding: 8px 12px; cursor:pointer">Xóa<button>
                             </td>
                             <td>${user.name}</td>
                             <td>${user.email}</td>
@@ -70,4 +70,24 @@ fetch('http://localhost:3000/api/v1/orders', {
             })
         })
     }
+
+function filterName() {
+    let input = document.querySelector('#content input')
+    let filter = input.value.toUpperCase()
+    let table = document.querySelector('table')
+    let tr = table.querySelectorAll('tr')
+    for (let i = 0; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName('td')[1]
+        if (td) {
+            let textValue = td.textContent || td.innerText
+            if (textValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = ""
+            }
+            else {
+                tr[i].style.display = "none"
+            }
+        }
+    }
+}
     
+

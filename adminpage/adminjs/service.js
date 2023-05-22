@@ -12,6 +12,8 @@ let getDelBtn = document.querySelector('.delete')
 let getTiclose = document.querySelector('.close-del')
 let updateBtn = document.querySelector('.update')
 let getCancelUpdate = document.querySelector('.cancel-update')
+let getError = document.querySelectorAll('.error')
+let getUpdateError = document.querySelectorAll('.error-update')
 addBtn.addEventListener('click', function() {
     getModal.style.display = 'block'
 })
@@ -54,7 +56,7 @@ function renderServices() {
                 return `
                 <tr class="service-item-${service.id}">
                     <td style="text-align: center;">
-                        <button onclick="deleteService('${service.id}')" class="delButton">Xóa</button>
+                        <button style="padding:8px 12px" onclick="deleteService('${service.id}')" class="delButton">Xóa</button>
                     </td>
                     <td>${service.category.name}</td>
                     <td>${service.name}</td>
@@ -96,26 +98,44 @@ renderCategories()
 
 let getAdmin = JSON.parse(localStorage.getItem('getUser'))
 function createService() {
-    let getImg = document.querySelector('.image')
-    console.log([getImg]) 
+    let getImg = document.querySelector('.image').files
     let getTitle = document.querySelector('.title').value
     let getContent = document.querySelector('#subject').value
     // console.log(getTrueContent)
-    const formData = new FormData();
-    const docsfile = getImg.files
-    formData.append("image", docsfile[0])
-    formData.append("name", getTitle)
-    formData.append("description", getContent)
-    formData.append("category", getCate.value)
-    console.log(formData)
-    fetch('http://localhost:3000/api/v1/services', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Authorization': `Bearer ${getAdmin.userToken}`
-          },
-        body: formData
-    })
+    if (getTitle.length < 10 || getTitle.length > 100) {
+        getError[0].innerText = "Tiêu đề phải có ít nhất 10 kí tự hoặc trên 100 kí tự"
+    }
+    else {
+        getError[0].innerText = ""
+    }
+    if (getImg.length == 0) {
+        getError[1].innerText = "Hãy chọn 1 ảnh"
+    }
+    else {
+        getError[1].innerText = ""
+    }
+    if (getContent.length == 0) {
+        getError[2].innerText = "Hãy nhập trường này"
+    }
+    else {
+        getError[2].innerText = ""
+    }
+    
+    if (getError[0].innerText == "" && getError[1].innerText == "" && getError[2].innerText == "") {
+        const formData = new FormData();
+        const docsfile = getImg
+        formData.append("image", docsfile[0])
+        formData.append("name", getTitle)
+        formData.append("description", getContent)
+        formData.append("category", getCate.value)
+        fetch('http://localhost:3000/api/v1/services', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Authorization': `Bearer ${getAdmin.userToken}`
+            },
+            body: formData
+        })
         .then(function(response) {
             return response.json()
         })
@@ -125,7 +145,10 @@ function createService() {
             getModal.style.display = 'none'
             renderServices()
         })
-        
+        .catch(function(err) {
+            console.log(err)
+        })
+    }
 }
 
 function deleteService(id) {
@@ -178,32 +201,51 @@ function updateService(serviceId) {
             updateBtn.addEventListener('click', function() {
                 let getTitleUpdate = document.querySelector('.title-update').value
                 let getContentUpdate = document.querySelector('#subject-update').value
-                let getImgUpdate = document.querySelector('.image-update')
-                getItemData[0] = new FormData()
-                const docsFile = getImgUpdate.files
-                getItemData[0].set("image", docsFile[0])
-                getItemData[0].set("name", getTitleUpdate)
-                getItemData[0].set("description", getContentUpdate)
-                getItemData[0].set("category", getCateUpdate.value)
-                fetch('http://localhost:3000/api/v1/services', {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json, text/plain, */*',
-                        'Authorization': `Bearer ${getAdmin.userToken}`
-                    },
-                    body: getItemData[0]
-                })
-                .then(function(res) {
-                    return res.json()
-                })
-                .then(function() {
-                    fetch('http://localhost:3000/api/v1/services' + '/' + serviceId, {
-                        method: 'DELETE',
+                let getImgUpdate = document.querySelector('.image-update').files
+                if (getTitleUpdate.length < 10 || getTitleUpdate.length > 100) {
+                    getUpdateError[0].innerText = "Tiêu đề phải có ít nhất 10 kí tự hoặc trên 100 kí tự"
+                }
+                else {
+                    getUpdateError[0].innerText = ""
+                }
+                if (getImgUpdate.length == 0) {
+                    getUpdateError[1].innerText = "Hãy chọn 1 ảnh"
+                }
+                else {
+                    getUpdateError[1].innerText = ""
+                }
+                if (getContentUpdate.length == 0) {
+                    getUpdateError[2].innerText = "Hãy nhập trường này"
+                }
+                else {
+                    getUpdateError[2].innerText = ""
+                }
+                if ( getUpdateError[0].innerText == "" && getUpdateError[1].innerText == "" && getUpdateError[2].innerText == "" ) {
+                    getItemData[0] = new FormData()
+                    const docsFile = getImgUpdate
+                    getItemData[0].set("image", docsFile[0])
+                    getItemData[0].set("name", getTitleUpdate)
+                    getItemData[0].set("description", getContentUpdate)
+                    getItemData[0].set("category", getCateUpdate.value)
+                    fetch('http://localhost:3000/api/v1/services', {
+                        method: 'POST',
                         headers: {
                             'Accept': 'application/json, text/plain, */*',
-                            'Content-Type': 'application/json',
                             'Authorization': `Bearer ${getAdmin.userToken}`
-                        }
+                        },
+                        body: getItemData[0]
+                    })
+                    .then(function(res) {
+                        return res.json()
+                    })
+                    .then(function() {
+                        fetch('http://localhost:3000/api/v1/services' + '/' + serviceId, {
+                            method: 'DELETE',
+                            headers: {
+                                'Accept': 'application/json, text/plain, */*',
+                                'Content-Type': 'application/json',
+                                'Authorization': `Bearer ${getAdmin.userToken}`
+                            }
                         })
                         .then(function(response) {
                         return response.json()
@@ -213,9 +255,29 @@ function updateService(serviceId) {
                             getUpdateModal.style.display = 'none'
                             renderServices()
                         })
-                })
+                    })
+                }  
             })
         
     })
-
 }
+
+function filterService() {
+    let input = document.querySelector('#search')
+    let filter = input.value.toUpperCase()
+    let table = document.querySelector('table')
+    let tr = table.querySelectorAll('tr')
+    for (let i = 0; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName('td')[2]
+        if (td) {
+            let textValue = td.textContent || td.innerText
+            if (textValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = ""
+            }
+            else {
+                tr[i].style.display = "none"
+            }
+        }
+    }
+}
+

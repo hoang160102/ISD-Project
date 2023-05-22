@@ -51,12 +51,12 @@
                 <div class="list">Quản trị dịch vụ</div>
             </div>
             <div class="content">
-                <input id="search" type="text" placeholder="Tìm kiếm dịch vụ">
+                <input onkeyup="filterService()" id="search" type="text" placeholder="Tìm kiếm dịch vụ">
                 <button>
                     <i class="fa fa-plus"></i>
                     Thêm mới
                 </button>
-                <table>
+                <table style="border-left: 1px solid #ccc;">
                     <thead>
                         <tr>
                             <th style="width: 10%;"></th>
@@ -82,11 +82,17 @@
             <div class="modal-add-service">
                 <div class="form-control">
                     <label for="name">Tiêu đề:</label>
-                    <input class="title" type="text" id="name" name="name">
+                    <div class="input-box">
+                        <input class="title" type="text" id="name" name="name">
+                        <div class="error"></div>
+                    </div>
                 </div>
                 <div class="form-control">
                     <label>Hình ảnh:</label>
-                    <input class="image" name="image" type="file" id="file-upload">
+                    <div class="input-box">
+                        <input class="image" name="image" type="file" id="file-upload">
+                        <div class="error"></div>
+                    </div>
                 </div>
                 <div class="form-control">
                     <label for="category">Danh mục:</label>
@@ -96,7 +102,10 @@
                 </div>
                 <div class="form-control">
                     <label for="name">Thông tin dịch vụ:</label>
-                    <textarea placeholder="Nội dung" rows="5" name="subject" id="subject"></textarea>
+                    <div class="input-box">
+                        <textarea placeholder="Nội dung" rows="10" name="subject" id="subject"></textarea>
+                        <div class="error"></div>
+                    </div>
                 </div>
             </div>
             <div class="footer-modal">
@@ -114,11 +123,17 @@
             <div class="modal-add-service">
                 <div class="form-control">
                     <label for="name">Tiêu đề:</label>
-                    <input class="title-update" type="text" id="name" name="name">
+                    <div class="input-box-update">
+                        <input class="title-update" type="text" id="name" name="name">
+                        <div class="error-update"></div>
+                    </div>
                 </div>
                 <div class="form-control">
                     <label>Hình ảnh:</label>
-                    <input class="image-update" name="image" type="file" id="file-upload">
+                    <div class="input-box-update">
+                        <input class="image-update" name="image" type="file" id="file-upload">
+                        <div class="error-update"></div>
+                    </div>
                 </div>
                 <div class="form-control">
                     <label for="category">Danh mục:</label>
@@ -128,7 +143,10 @@
                 </div>
                 <div class="form-control">
                     <label for="name">Thông tin dịch vụ:</label>
-                    <textarea placeholder="Nội dung" rows="5" name="subject" id="subject-update"></textarea>
+                    <div class="input-box-update">
+                        <textarea placeholder="Nội dung" rows="10" name="subject" id="subject-update"></textarea>
+                        <div class="error-update"></div>
+                    </div>
                 </div>
             </div>
             <div class="footer-modal">

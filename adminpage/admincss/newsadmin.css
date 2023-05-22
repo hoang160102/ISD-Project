@@ -71,7 +71,6 @@ body {
     position: absolute;
     top: 0px;
     height: 100vh;
-    border-right: 1px solid #ccc;
 }
 
 .nav-menu {
@@ -196,6 +195,10 @@ img {
     background-color: rgba(0,0,0,0.4);
 }
 
+.modal-add-service {
+    margin-top: 20px;
+}
+
 .modal-content {
     margin: auto;
     width: 80%;
@@ -235,8 +238,12 @@ img {
     width: 20%;
 }
 
-.form-control input, .form-control textarea {
+.input-box, .input-box-update {
     width: 75%;
+}
+
+.form-control input, .form-control textarea {
+    width: 100%;
     padding: 10px;
 }
 
@@ -355,4 +362,8 @@ img {
 .delete:hover {
     background-color: #004C99;
     color: #ccc;
+}
+
+.error, .error-update {
+    color: red;
 }

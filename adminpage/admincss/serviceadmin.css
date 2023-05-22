@@ -71,7 +71,6 @@ body {
     position: absolute;
     top: 0px;
     height: 100vh;
-    border-right: 1px solid #ccc;
 }
 
 .nav-menu {
@@ -235,9 +234,18 @@ img {
     width: 20%;
 }
 
-.form-control input, .form-control textarea {
+.input-box, .input-box-update {
     width: 75%;
+}
+
+
+.form-control input, .form-control textarea {
+    width: 100%;
     padding: 10px;
+}
+
+#file-upload {
+    padding: 0 !important;
 }
 
 .footer-modal {
@@ -354,6 +362,11 @@ img {
 .delete:hover {
     background-color: #004C99;
     color: #ccc;
+}
+
+.error, .error-update {
+    color: red;
+    font-size: 14px;
 }
 
 
