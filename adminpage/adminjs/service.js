@@ -20,22 +20,44 @@ addBtn.addEventListener('click', function() {
 
 getClose.addEventListener('click', function() {
     getModal.style.display = 'none'
+    getError[0].innerText = ""
+    getError[1].innerText = ""
+    getError[2].innerText = ""
 })
 
 getCancel.addEventListener('click', function() {
     getModal.style.display = 'none'
+    getError[0].innerText = ""
+    getError[1].innerText = ""
+    getError[2].innerText = ""
 })
 
 getCancelUpdate.addEventListener('click', function() {
     getUpdateModal.style.display = 'none'
+    getUpdateError[0].innerText = ""
+    getUpdateError[1].innerText = ""
+    getUpdateError[2].innerText = ""
+})
+
+document.querySelector('#update-modal .add-close').addEventListener('click', function() {
+    getUpdateModal.style.display = 'none'
+    getUpdateError[0].innerText = ""
+    getUpdateError[1].innerText = ""
+    getUpdateError[2].innerText = ""
 })
 
 window.onclick = function(event) {
     if (event.target == getModal) {
-        getModal.style.display = "none";
+        getModal.style.display = "none"
+        getError[0].innerText = ""
+        getError[1].innerText = ""
+        getError[2].innerText = ""
     }
     if (event.target == getUpdateModal) {
         getUpdateModal.style.display = "none"
+        getUpdateError[0].innerText = ""
+        getUpdateError[1].innerText = ""
+        getUpdateError[2].innerText = ""
     }
 }
 

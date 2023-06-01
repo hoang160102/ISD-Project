@@ -270,6 +270,13 @@ body {
 
 .menu-news li a span {
     font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    line-height: 18px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    height: 37px;
 }
 
 #footer {
@@ -334,7 +341,7 @@ body {
     .res-menu {
         display: block;
         position: absolute;
-        top: 100px;
+        top: 80px;
         width: 100%;
         background-color: rgba(0, 0, 0, 0.4);
         padding: 0 16px;
@@ -384,7 +391,7 @@ body {
         width: 100%;
     }
 
-    .scale:hover {
+    .scale:hover img {
         scale: 1.0;
     }
 }

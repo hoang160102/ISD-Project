@@ -12,28 +12,51 @@ let getUpdateModal = document.querySelector('#update-modal')
 let updateBtn = document.querySelector('.update')
 let getCancelUpdate = document.querySelector('.cancel-update')
 let getUpdateError = document.querySelectorAll('.error-update')
+let getError = document.querySelectorAll('.error')
+function loopError () {
+    for (let i = 0; i < getError.length; i++) {
+        getError[i].innerText = ''
+    }
+}
+
+function loopUpdateError () {
+    for (let i = 0; i < getError.length; i++) {
+        getUpdateError[i].innerText = ''
+    }
+}
+
 addBtn.addEventListener('click', function() {
     getModal.style.display = 'block'
 })
 
 getClose.addEventListener('click', function() {
     getModal.style.display = 'none'
+    loopError()
 })
 
 getCancel.addEventListener('click', function() {
     getModal.style.display = 'none'
+    loopError()
 })
 
 getCancelUpdate.addEventListener('click', function() {
     getUpdateModal.style.display = 'none'
+    loopUpdateError()
+})
+
+document.querySelector('#update-modal .fa-close').addEventListener('click', function() {
+    getUpdateModal.style.display = 'none'
+    loopUpdateError()
 })
 
 window.onclick = function(event) {
     if (event.target == getModal) {
         getModal.style.display = "none";
+        loopError()
     }
     if (event.target == getUpdateModal) {
         getUpdateModal.style.display = "none"
+        loopUpdateError()
     }
 }
 let getEmploy = JSON.parse(localStorage.getItem('getUser'))
@@ -117,7 +140,6 @@ function createNews() {
     let getFiles = document.querySelector('#file-upload').files
     let getMainInfo = document.querySelector('#main-subject').value
     let getInfo = document.querySelector('#subject').value
-    let getError = document.querySelectorAll('.error')
     let getWebInfo = getInfo.split('\n\n\n')
     if (getTitle.length < 10 || getTitle.length > 100) {
         getError[0].innerText = "Tiêu đề phải có ít nhất 10 kí tự hoặc trên 100 kí tự"
@@ -169,8 +191,8 @@ function createNews() {
         .then(function(response) {
             return response.json()
         })
-        .then(function(data) {
-            console.log(data)
+        .then(function() {
+            alert('Đăng thành công')
             getModal.style.display = 'none'
             renderNews()
         })

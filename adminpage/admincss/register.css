@@ -30,7 +30,7 @@ body {
 }
 
 .form-control {
-    margin: 40px 0;
+    margin: 30px 0;
 }
 
 .form-control input {
@@ -40,12 +40,13 @@ body {
     font-size: 17px;
     height: 40px;
     border-bottom: 2px solid #adadad;
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 }
 
 .form-control span {
 	color: red;
-	font-size: 15px;
+	font-size: 14px;
+	display: inline-block;
 }
 
 .submit-form {

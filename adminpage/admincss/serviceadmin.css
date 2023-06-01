@@ -199,9 +199,10 @@ img {
     margin: auto;
     width: 80%;
     background-color: #fff;
-    height: 80%;
+    max-height: 80%;
     padding: 20px;
     margin-top: 5%;
+    position: relative;
 }
 
 .modal-header {
@@ -210,6 +211,14 @@ img {
     font-size: 27px;
     padding-bottom: 20px;
     border-bottom: 1px solid #ccc;
+}
+
+.add-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
 .modal-header span {
@@ -226,7 +235,7 @@ img {
 
 .form-control {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .form-control label {
@@ -249,9 +258,9 @@ img {
 }
 
 .footer-modal {
-    padding: 20px 0;
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 40px;
 }
 
 .footer-modal button {
@@ -306,10 +315,10 @@ img {
     background-color: #fff;
 }
 
-.fa-close {
+.close-del {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     font-size: 20px;
     cursor: pointer;
 }
@@ -367,6 +376,8 @@ img {
 .error, .error-update {
     color: red;
     font-size: 14px;
+    margin: 5px 0;
+    height: 16px;
 }
 
 

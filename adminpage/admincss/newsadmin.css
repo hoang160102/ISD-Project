@@ -230,7 +230,7 @@ img {
 
 .form-control {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .form-control label {
@@ -366,4 +366,7 @@ img {
 
 .error, .error-update {
     color: red;
+    font-size: 14px;
+    margin: 5px 0;
+    height: 16px;
 }
