@@ -77,7 +77,7 @@ fetch('http://localhost:3000/api/v1/news', {
             </div>
         </a>
         `
-        for (let i = 3; i < 5; i++) {
+        for (let i = 1; i < 3; i++) {
             getNewsRightContent.innerHTML += 
             `
             <div class="right-menu-content">

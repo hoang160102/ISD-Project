@@ -219,31 +219,6 @@ function updateNews(newsId) {
                 let getMainUpdate = document.querySelector('#main-subject-update').value
                 let getImgUpdate = document.querySelector('.image-update').files
                 let getWebUpdate = getContentUpdate.split('\n\n\n')
-                if (getTitleUpdate.length < 10 || getTitleUpdate.length > 100) {
-                    getUpdateError[0].innerText = "Tiêu đề phải có ít nhất 10 kí tự hoặc trên 100 kí tự"
-                }
-                else {
-                    getUpdateError[0].innerText = ""
-                }
-                if (getImgUpdate.length == 0) {
-                    getUpdateError[1].innerText = "Hãy chọn 1 ảnh"
-                }
-                else {
-                    getUpdateError[1].innerText = ""
-                }
-                if (getMainUpdate.length == 0) {
-                    getUpdateError[2].innerText = "Hãy nhập trường này"
-                }
-                else {
-                    getUpdateError[2].innerText = ""
-                }
-                if (getContentUpdate.length == 0) {
-                    getUpdateError[3].innerText = "Hãy nhập trường này"
-                }
-                else {
-                    getUpdateError[3].innerText = ""
-                }
-                if (getUpdateError[0].innerText == "" && getUpdateError[1].innerText == "" && getUpdateError[2].innerText == "" && getUpdateError[3].innerText == "") {
                     getNewsData[0] = new FormData()
                     const docsFile = getImgUpdate
                     getNewsData[0].set('image0', docsFile[0])
@@ -286,7 +261,7 @@ function updateNews(newsId) {
                             renderNews()
                         })
                     })
-                }
+                
             })
         })
 }
