@@ -61,6 +61,7 @@ function getNews(newId) {
         let getData = newsData.filter(function(newInfo) {
             return newInfo.id == newId
         })
+        console.log(getData)
         let info = getData.map(function(item) {
             return `
             <h1>${item.title}</h1>
